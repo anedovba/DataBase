@@ -58,22 +58,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etName=(EditText) findViewById(R.id.etNameActiviteMain);
         etPass=(EditText) findViewById(R.id.etPassActiviteMain);
         lvMain = (ListView) findViewById(R.id.lvMainActivityMain);
-        lvMain.setOnLongClickListener(new AdapterView.OnItemLongClickListener() {
+        lvMain.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                AlertDialog.Builder builder= new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Delete? Are you sure?")
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Do you want to delete?")
                         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //TODO current resolved + delete use long id
+                                //TODO content resolver + delete use long id
                             }
-                        }));
-builder.create().show();
+                        });
+
+                builder.create().show();
 
                 return true;
             }
         });
+
+
+
     }
 
     @Override
